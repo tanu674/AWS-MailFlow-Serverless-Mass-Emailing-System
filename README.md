@@ -24,7 +24,20 @@ The system is event-driven: uploading a CSV file to S3 triggers a Lambda functio
 
 **Flow:**
 1. Upload CSV to S3 bucket  
-2. S3 triggers Lambda function  
-3. Lambda reads CSV and sends emails via SES  
+2. S3 triggers Lambda function
+  
+   <img width="1440" height="900" alt="Screenshot 2026-01-21 at 8 37 28 PM" src="https://github.com/user-attachments/assets/c83e243e-a323-4079-b9f7-5fbfa6b48229" />
+
+5. Lambda reads CSV and sends emails via SES
+
+<img width="1440" height="900" alt="Screenshot 2026-01-21 at 8 49 56 PM" src="https://github.com/user-attachments/assets/e4193027-b8d1-4e53-b6a7-a2468bc088a6" />
+<img width="1440" height="900" alt="Screenshot 2026-01-21 at 8 33 09 PM" src="https://github.com/user-attachments/assets/74badffa-21a5-412a-95a6-1aa546e09d42" />
+
+
+
+
+
+
+   
 
 
