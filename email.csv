@@ -1,0 +1,14 @@
+cd ~/Desktop
+
+pwd
+touch emails.csv
+nano emails.csv
+
+email
+verifiedemail1@gmail.com
+verifiedemail2@gmail.com
+
+
+ # Press Ctrl + O → Press Enter (to save)
+
+Press Ctrl + X (to exit editor)
