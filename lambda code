@@ -1,0 +1,30 @@
+import boto3
+import csv
+
+s3 = boto3.client('s3')
+ses = boto3.client('ses')
+
+SENDER = "your-verified-email@gmail.com"  # Replace with your SES verified email
+
+def lambda_handler(event, context):
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    key = event['Records'][0]['s3']['object']['key']
+
+    response = s3.get_object(Bucket=bucket, Key=key)
+    lines = response['Body'].read().decode('utf-8').splitlines()
+
+    reader = csv.DictReader(lines)
+
+    for row in reader:
+        email = row['email']
+
+        ses.send_email(
+            Source=SENDER,
+            Destination={'ToAddresses': [email]},
+            Message={
+                'Subject': {'Data': 'AWS Serverless Email'},
+                'Body': {'Text': {'Data': 'This email was sent using AWS Lambda + SES.'}}
+            }
+        )
+
+    return {"status": "Emails sent successfully"}
